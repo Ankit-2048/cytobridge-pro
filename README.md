@@ -1,16 +1,29 @@
-# React + Vite
+# CytoBridge Pro 🧬
+**Autonomous Machine Learning Middleware for Flow Cytometry Data Pipelines**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+CytoBridge Pro is a high-performance, full-stack application designed to automate the flow cytometry gating process. By replacing subjective, manual polygon gating with objective, unsupervised machine learning (Mini-Batch K-Means), this tool translates proprietary `.fcs` instrument files into standardized, ML-ready CSV datasets in seconds.
 
-Currently, two official plugins are available:
+## Key Features
+* **Universal .fcs Ingestion:** Parses proprietary flow cytometry data from any major instrument.
+* **Autonomous AI Auto-Detect:** Utilizes a custom, scale-invariant Elbow Method algorithm to dynamically calculate the optimal number of biological populations in highly heterogeneous samples (e.g., solid tumors vs. whole blood).
+* **Multi-Dimensional Clustering:** Employs `scikit-learn` Mini-Batch K-Means with variance standardization to objectively cluster cells based on physical scatter (FSC/SSC) or fluorescent biomarkers.
+* **Real-Time Visualization:** WebGL-accelerated React dashboard capable of rendering complex cell populations instantly.
+* **ML-Ready Export:** Converts visual clusters into hardcoded, machine-readable datasets (CSV) for downstream computational biology pipelines.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+* **Backend:** Python, FastAPI, scikit-learn, pandas, fcsparser
+* **Frontend:** React, Vite, Plotly.js
 
-## React Compiler
+## Local Installation
+1. Clone the repository:
+   `git clone https://github.com/Ankit-2048/cytobridge-pro.git`
+2. Start the Python API (Backend):
+   `pip install fastapi uvicorn python-multipart fcsparser pandas scikit-learn`
+   `uvicorn main:app --reload`
+3. Start the React UI (Frontend):
+   `npm install`
+   `npm run dev`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+**Author:** Ankit Mitra
